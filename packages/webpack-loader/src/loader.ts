@@ -39,5 +39,7 @@ export const loader: LoaderDefinitionFunction = function (content, map, meta) {
     }
 
     callback(null, content, map, meta);
-  })();
+  })().catch((error) => {
+    callback(error, content, map, meta);
+  });
 };
