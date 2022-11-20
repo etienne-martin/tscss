@@ -1,0 +1,13 @@
+{
+  "name": "@tscss/jest-config",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "index.js",
+  "scripts": {},
+  "peerDependencies": {},
+  "dependencies": {
+    "jest-environment-jsdom": "^29.3.0"
+  },
+  "devDependencies": {}
+}

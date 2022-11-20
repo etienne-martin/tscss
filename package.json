@@ -1,0 +1,42 @@
+{
+  "name": "tscss",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "tests/*"
+  ],
+  "scripts": {
+    "build": "turbo run build --color",
+    "test": "turbo run test --color",
+    "predev": "n auto && yarn install",
+    "dev": "turbo run dev --color",
+    "start": "turbo run start --color",
+    "types:check": "turbo run types:check --color",
+    "lint": "eslint ./ --ext js,jsx,ts,tsx,json --max-warnings=0",
+    "lint:fix": "yarn lint --fix",
+    "deploy": "turbo run deploy --color",
+    "audit-packages": "./scripts/audit.sh",
+    "ci": "turbo run build test types:check lint audit-packages --color"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.220",
+    "@swc/jest": "^0.2.22",
+    "@types/jest": "^29.0.3",
+    "chokidar": "^3.5.3",
+    "concurrently": "^6.4.0",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.21.0",
+    "improved-yarn-audit": "^3.0.0",
+    "jest": "^29.0.3",
+    "prettier": "^2.5.1",
+    "tsd": "^0.24.1",
+    "turbo": "^1.3.4",
+    "typescript": "4.5.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

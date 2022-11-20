@@ -1,0 +1,14 @@
+{
+  "name": "@tscss/integration-test",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "types:check": "tsc --noEmit",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@tscss/core": "*"
+  },
+  "devDependencies": {}
+}

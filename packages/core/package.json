@@ -1,0 +1,23 @@
+{
+  "name": "@tscss/core",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "concurrently 'yarn build:commonjs --watch' 'yarn types:emit --watch --preserveWatchOutput'",
+    "build": "concurrently 'yarn build:commonjs' 'yarn types:emit'",
+    "build:commonjs": "swc src --out-dir dist --config-file=../../.swcrc.json",
+    "types:emit": "tsc --project tsconfig.lib.json",
+    "types:check": "tsc --noEmit",
+    "test": "jest src",
+    "cleanup": "rm -rf ./dist",
+    "prebuild": "yarn cleanup"
+  },
+  "dependencies": {
+    "@swc/core": "^1.2.220",
+    "@swc/register": "^0.1.10",
+    "clear-module": "^4.1.2"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,5 @@
+- global styles
+- watcher (dependencies)
+- emit files at the right location
+- support json styles
+- ignore css module files from loader

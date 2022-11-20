@@ -1,0 +1,22 @@
+{
+  "name": "@tscss/webpack-loader",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "concurrently 'yarn build:commonjs --watch' 'yarn types:emit --watch --preserveWatchOutput'",
+    "build": "concurrently 'yarn build:commonjs' 'yarn types:emit'",
+    "build:commonjs": "swc src --out-dir dist --config-file=../../.swcrc.json",
+    "types:emit": "tsc --project tsconfig.lib.json",
+    "types:check": "tsc --noEmit",
+    "cleanup": "rm -rf ./dist",
+    "prebuild": "yarn cleanup"
+  },
+  "dependencies": {
+    "@tscss/core": "*"
+  },
+  "devDependencies": {
+    "@types/webpack": "^5.28.0"
+  }
+}

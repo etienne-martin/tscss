@@ -1,0 +1,20 @@
+{
+  "name": "@tscss/version-pin",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "bin": {
+    "version-pin": "./bin/version-pin"
+  },
+  "scripts": {
+    "dev": "yarn build --watch",
+    "build": "swc src --out-dir dist --config-file=../../.swcrc.json",
+    "types:check": "tsc --noEmit",
+    "cleanup": "rm -rf ./dist",
+    "prebuild": "yarn cleanup"
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.12"
+  },
+  "devDependencies": {}
+}

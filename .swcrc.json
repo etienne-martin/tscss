@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "exclude": ["/tests/", ".test.ts$", ".test.tsx$", ".mock.ts$", ".mock.tsx$"],
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true
+    },
+    "transform": {
+      "react": {
+        "runtime": "automatic"
+      }
+    },
+    "target": "es5"
+  },
+  "module": {
+    "type": "commonjs",
+    "ignoreDynamic": true
+  },
+  "minify": true,
+  "env": {
+    "targets": {
+      "browsers": [">0.5% in CA, not ie 11, not op_mini all"]
+    }
+  }
+}

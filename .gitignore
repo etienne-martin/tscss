@@ -1,0 +1,14 @@
+.idea
+.vscode
+node_modules
+coverage
+dist
+.turbo
+.DS_Store
+
+yarn-debug.log*
+yarn-error.log*
+
+.env.local
+
+*.tsbuildinfo
