@@ -49,9 +49,11 @@ export const compile = async (filePath: string) => {
   });
 
   const stylesheetName = `${md5(stylesheet)}.module.scss`;
+  const dependencies = Object.values(defaultExport).map(({ parent }) => parent);
 
   return {
     stylesheet,
     stylesheetName,
+    dependencies,
   };
 };

@@ -1,7 +1,7 @@
 import { css } from "./compile-css";
 
 describe("css compilation", () => {
-  it("should return a css object", () => {
+  it("should return a tscss object", () => {
     expect(
       css`
         background: red;

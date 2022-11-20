@@ -1,3 +1,5 @@
+import parentModule from "parent-module";
+
 import type { CssObject } from "./tscss.def";
 import { md5 } from "./utils/md5";
 
@@ -23,5 +25,6 @@ export const css = (strings: TemplateStringsArray, ...values: (string | number |
     object: "tscss-object",
     hash: `tscss_${hash}`,
     declarations,
+    parent: parentModule(),
   };
 };

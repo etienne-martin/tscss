@@ -13,6 +13,15 @@ describe("compile", () => {
     });
   });
 
+  it("should resolve re-exports", async () => {
+    const fixturePath = resolve(__dirname, "./fixtures/re-export.style.ts");
+
+    deepEqual(await compile(fixturePath), {
+      stylesheet: ".container {\n\tbackground: #09f;\n}",
+      stylesheetName: "840f89cb2356f6dc43fc6909eff55350.module.scss",
+    });
+  });
+
   it("should log a warning if the module has named exports", async () => {
     const fixturePath = resolve(__dirname, "./fixtures/named-export.style.ts");
 

@@ -19,10 +19,13 @@ const loader: LoaderDefinitionFunction = function (content, map, meta) {
       for (const value of program.body) {
         if (value.type === "ImportDeclaration" && value.source.value.endsWith(".style")) {
           const styleImportPath = resolve(dirname(this.resourcePath), value.source.value);
-          const { stylesheet, stylesheetName } = await compile(styleImportPath);
+          const { stylesheet, stylesheetName, dependencies } = await compile(styleImportPath);
 
           // eslint-disable-next-line unicorn/prefer-module
-          this.addDependency(require.resolve(styleImportPath));
+          [require.resolve(styleImportPath), ...dependencies].forEach(
+            (dependency) => dependency && this.addDependency(dependency)
+          );
+
           this.emitFile(stylesheetName, stylesheet);
           value.source.raw = `"../${stylesheetName}"`;
         }
