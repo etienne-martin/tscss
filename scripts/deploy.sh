@@ -24,7 +24,7 @@ PACKAGE_VERSION=$(cat package.json \
 if npm show "$PACKAGE_NAME" version | grep -w "$PACKAGE_VERSION" > /dev/null; then
   echo "Package $PACKAGE_NAME@$PACKAGE_VERSION already exists, publishing to @next"
   npm version "$PACKAGE_VERSION-next-$TIMESTAMP"
-  npm publish --tag next
+  npm publish --registry=https://registry.npmjs.org --tag next
 else
-  npm publish
+  npm publish --registry=https://registry.npmjs.org
 fi
