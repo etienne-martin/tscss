@@ -1,0 +1,33 @@
+name: "Pipeline"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.18.1
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn ci
+
+      - name: Deploy
+        if: (endsWith(github.ref, '/main') && github.event_name == 'push')
+        run: |
+          npm config set //registry.npmjs.org/:_authToken="${{ secrets.NPM_AUTH_TOKEN }}"
+          yarn deploy

@@ -4,12 +4,17 @@
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts"
+  ],
   "scripts": {
     "dev": "concurrently 'yarn build:commonjs --watch' 'yarn types:emit --watch --preserveWatchOutput'",
     "build": "concurrently 'yarn build:commonjs' 'yarn types:emit'",
     "build:commonjs": "swc src --out-dir dist --config-file=../../.swcrc.json",
     "types:emit": "tsc --project tsconfig.lib.json",
     "types:check": "tsc --noEmit",
+    "deploy": "../../scripts/deploy.sh",
     "cleanup": "rm -rf ./dist",
     "prebuild": "yarn cleanup"
   },
