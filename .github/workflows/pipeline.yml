@@ -30,4 +30,5 @@ jobs:
         if: (endsWith(github.ref, '/main') && github.event_name == 'push')
         run: |
           npm config set //registry.npmjs.org/:_authToken="${{ secrets.NPM_AUTH_TOKEN }}"
+          yarn version-pin
           yarn deploy
