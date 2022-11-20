@@ -4,10 +4,9 @@ import path from "node:path";
 
 const run = async () => {
   const rootPackage = JSON.parse(await fs.readFile(path.resolve(process.cwd(), "package.json"), "utf8"));
-  const packages = Array.isArray(rootPackage.workspaces) ? rootPackage.workspaces : rootPackage.workspaces.packages;
 
   const packageJsonPaths = await glob(
-    packages.map((workspacePath: string) => path.resolve(workspacePath, "package.json"))
+    rootPackage.workspaces.map((workspacePath: string) => path.resolve(workspacePath, "package.json"))
   );
 
   const workspaces = Object.fromEntries(

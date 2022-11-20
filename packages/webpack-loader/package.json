@@ -18,6 +18,9 @@
     "cleanup": "rm -rf ./dist",
     "prebuild": "yarn cleanup"
   },
+  "peerDependencies": {
+    "webpack": "^5.0.0"
+  },
   "dependencies": {
     "@tscss/core": "*"
   },
