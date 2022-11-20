@@ -1,6 +1,6 @@
 {
   "name": "tscss",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "license": "UNLICENSED",
   "private": true,
   "workspaces": [
@@ -12,7 +12,6 @@
     "test": "turbo run test --color",
     "predev": "n auto && yarn install",
     "dev": "turbo run dev --color",
-    "start": "turbo run start --color",
     "types:check": "turbo run types:check --color",
     "lint": "eslint ./ --ext js,jsx,ts,tsx,json --max-warnings=0",
     "lint:fix": "yarn lint --fix",
